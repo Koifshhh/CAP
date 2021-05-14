@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+	<head>
+		<title>Cornell Apple Pie  - Cornell College</title>
+		<meta charset="UTF-8"/>
+		<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+		<meta content="IE=10" http-equiv="X-UA-Compatible"/>
+		<meta content="#523178" name="theme-color"/>
+		<link rel="manifest" href="/manifest.json?v=2">
+		<script src="./jquery.min.js"></script>
+		<script src="./dynamicData.js"></script>
+		<script src="./app.js"></script>
+		<link href="./style.css" media="all" rel="stylesheet"/>
+		<noscript>
+			<!-- redirect to web application index page -->
+			<meta http-equiv="Refresh" content="0; URL='https://www.cornellcollege.edu/health-services/symptom-checker/index.php/createEdit/1'" />
+		</noscript>
+	</head>
+	<body class="" data-twttr-rendered="true">
+		<main>
+			<div class="tab onehundredpercent">
+			  <a class="btn btn-dark" href="https://www.cornellcollege.edu/test/arogers21/CAP/">Symptom Checker</a>
+			  <a class="btn btn-dark" href="https://www.cdc.gov/coronavirus/2019-ncov/index.html">CDC Info</a>
+			  <a class="btn btn-dark" href="https://coronavirus.iowa.gov/">COVID-19 Iowa</a>
+			<!--<img src="./cc_11_square.jpg" />-->
+			<!-- <img class="img-max" id="ram" src="./CornellFlyingRamLogo.JPG" /> -->
+			<div class="body">
+				<section aria-label="section-top" class="section section-top section-light" role="region">
+					<div class="wrapper">
+						<h1>C.A.P.</h1>
+					</div>
+				</section>
+				<a name="cont"></a>
+				<section aria-label="section-l-two-col" class="section l-two-col" role="region">
+					<div class="wrapper">
+						<div class="l-main l-main-right">
+							<div class="l-two-col">
+								<div class="l-main" role="main">
+									<h3>Welcome <span id="sMyName"></span></h3>
+									<p>Report your health for <span id="sMyDate"></span>.</p>
+									<form method="post" onsubmit="" action="/test/dhakken/development/health-services-symptom-checker/index.php/createEdit/1" enctype="multipart/form-data" id="health_tracker" >
+										<input type="hidden" name="health_tracker[username]" id="username" value="" />
+										<input type="hidden" name="health_tracker[userid]" id="userid" value="" />
+										<input type="hidden" name="health_tracker[on_campus]" id="on_campus" value="" />
+										<fieldset>
+											<div class="onCampusRadios">
+												<span >Will you be on campus today?</span>
+												<label for="not_on_campus-0" data-labelfor="not_on_campus-0">
+													<input aria-label="health_tracker[not_on_campus]" type="radio" name="health_tracker[not_on_campus]" class="radio not_on_campus " id="not_on_campus-0" value="yes"  onchange="notOnCampus();"/>I will NOT be on Campus
+												</label>
+												<label for="not_on_campus-1" data-labelfor="not_on_campus-1">
+													<input aria-label="health_tracker[not_on_campus]" type="radio" name="health_tracker[not_on_campus]" class="radio not_on_campus " id="not_on_campus-1" value="no"  onchange="notOnCampus();"/>I will be on Campus
+												</label>
+												<label for="not_on_campus-2" data-labelfor="not_on_campus-2">
+													<input aria-label="health_tracker[not_on_campus]" type="radio" name="health_tracker[not_on_campus]" class="radio not_on_campus " id="not_on_campus-2" value="reporting"  onchange="notOnCampus();"/>Not on Campus BUT reporting
+												</label>
+											</div>
+											<br />
+											<div id="sNotOnCampusToday" class="is-hidden">
+												<div id="secondLoad">
+												</div>
+												<div id="symptomDetails" class ="g g-2up is-hidden">Please select all that you have.<br />
+												</div>
+												<div class="symptomsRadios">
+													<span >In the past 48 hours, have you been within 6 feet of a person with COVID-19 for more than a cumulative total of 15 minutes in any 24 hour period?</span>
+														<label for="18-0" data-labelfor="18-0"><input aria-label="health_tracker[18]" type="radio" name="health_tracker[18]" class="radio 18 " id="18-0" value="no" />No
+														</label>
+														<label for="18-1" data-labelfor="18-1"><input aria-label="health_tracker[18]" type="radio" name="health_tracker[18]" class="radio 18 " id="18-1" value="yes" />Yes
+														</label>
+												</div>
+											</div>
+											<div class="hideAllButtons">
+												<div id="buttons"><br />
+													<div class="submitDetails">
+														<input type="submit" name="health_tracker[submit]" id="submit" value="Submit" onclick="hideAllButtons();" />
+													</div>
+												</div>
+												<div id="testButton"><br />If complete, you will have the option to submit.<br />
+													<input type="button" name="health_tracker[testRequired]" id="testRequired" value="Check form" onclick="bAllRequiredSet();" />
+												</div>
+											</div>
+										</fieldset>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<footer aria-label="footerCopyRight" class="footer footer-copyright" role="contentinfo">
+					<div class="wrapper">
+						<p class="copyright">&copy; <?php echo date('Y'); ?>  Cornell College. All rights reserved.</p>
+					</div>
+				</footer>
+			</div>
+		</main>
